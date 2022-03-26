@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">  
+  <title>Frontend Mentor | Interactive rating component</title>
+  <link rel="stylesheet" href="./style.css">   
+</head>
+<body>
+  <!-- Rating state start -->
+  
+  <div class="rating-box">
+
+    <div class="one">
+      <div class="top">
+        <img src="./images/icon-star.svg" alt="star">
+      </div>
+      <div class="title">How did we do?</div>
+      <p>Please let us know how we did with your support request. All feedback is appreciated 
+        to help us improve our offering!
+      </p>
+  
+      <div class="starts">
+        <div class="star" data-point="1">1</div>
+        <div class="star" data-point="2">2</div>
+        <div class="star" data-point="3">3</div>
+        <div class="star" data-point="4">4</div>
+        <div class="star" data-point="5">5</div>
+      </div>
+  
+      <button class="submit" id="submit">SUBMIT</button>
+    </div>
+
+    <div class="thanks" id="thanks">
+      <div class="image">
+        <img src="./images/illustration-thank-you.svg" alt="">
+      </div>
+      <div class="point">
+        You have selected <span id="mark"></span> out of 5
+      </div>
+      <h1>Thank you!</h1>
+      <p>We appreciate you taking the time to give a rating. If you ever need more support, 
+        don’t hesitate to get in touch!</p>
+    </div>
+
+  </div>
+
+  <!-- Rating state end -->
+
+
+
+  <!-- Thank you state start -->
+  <!-- Thank you state end -->
+
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Rakib Hasan</a>.
+  </div>
+</body>
+</html>
+
+
+
+
+<script>
+
+    const one = document.querySelector(".one");
+    const thanks = document.querySelector(".thanks");
+    const star = document.querySelectorAll(".star");
+    const submit = document.getElementById("submit");
+    const mark = document.getElementById("mark");
+
+
+    var rating = 0;
+
+
+    for (let i=0; i<star.length; i++){
+
+      star[i].addEventListener("click", function(e){
+        rating = star[i].getAttribute('data-point');  
+        
+        star[i].classList.add('set')
+
+
+      })
+
+    }
+
+
+    submit.addEventListener("click", function(){
+      one.style.display = "none";
+      thanks.style.display = "block"
+      mark.innerText = rating;
+    })
+
+    
+
+</script>
