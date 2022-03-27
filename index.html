@@ -81,7 +81,12 @@
       star[i].addEventListener("click", function(e){
         rating = star[i].getAttribute('data-point');  
         
-        star[i].classList.add('set')
+        star[i].classList.add('set');
+        [...star]
+      .filter((star) => star !== e.target)
+      .forEach((star) => {
+        star.classList.remove("set");
+      });
 
 
       })
